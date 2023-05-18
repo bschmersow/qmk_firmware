@@ -7,6 +7,6 @@
 
 void keyboard_post_init_user(void) {
     setPinOutput(SINGLELEDPIN);
-    rgblight_setrgb(RGB_ORANGE);
+    rgblight_setrgb(RGB_AZURE);
     writePinHigh(SINGLELEDPIN);
 }

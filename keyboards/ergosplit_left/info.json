@@ -14,12 +14,11 @@
     },
     "rgblight": {
         "led_count": 12,
-        "pin": "B6",
-        "max_brightness": 255
+        "pin": "B5"
     },
     "matrix_pins": {
-        "cols": ["B2", "B1", "B3", "F7", "F6", "F5", "F4"],
-        "rows": ["B5", "B4", "E6", "D7", "C6"]
+        "cols": ["E6", "F4", "F6", "B6", "B1", "B3", "B2"],
+        "rows": ["D1", "D0", "D4", "C6", "D7"]
     },
     "processor": "atmega32u4",
     "url": "",
