@@ -9,24 +9,25 @@
 
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
-	_BASE,
+	_MINE,
 	_NEOL3,
 	_NEOL4,
-    _SYS
+    _SYS,
+    _QWERTZ
 };
 
 // LAYOUT_ortho_7x5
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT_ortho_5x7(
+    [_MINE] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_1,            KC_2,            KC_3,            KC_4,            KC_5,            KC_6,
-        KC_TAB,           KC_Q,            KC_W,            KC_E,            KC_R,            KC_T,            KC_ENTER,
-        LCA_T(KC_BTN1),   KC_A,            KC_S,            KC_D,            KC_F,            KC_G,            MO(_SYS),
-        KC_LSFT,          KC_Y,            KC_X,            KC_C,            KC_V,            KC_B,            KC_PSCR,
-        KC_LCTL,          KC_LWIN,         TO(_NEOL4),         KC_LALT,      MO(_NEOL4),      KC_SPC,          MO(_NEOL3)
+        KC_TAB,           KC_J,            KC_L,            KC_U,            KC_A,            KC_Q,            KC_ENTER,
+        LCA_T(KC_BTN1),   KC_C,            KC_R,            KC_I,            KC_E,            KC_O,            MO(_SYS),
+        KC_LSFT,          KC_V,            KC_X,            RALT(KC_Y),      RALT(KC_Q),      RALT(KC_P),            KC_PSCR,
+        KC_LCTL,          KC_LWIN,         TO(_NEOL4),      KC_LALT,         MO(_NEOL3),      KC_SPC,          MO(_NEOL4)
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_F1,           KC_F2,           KC_F3,           KC_F4,           KC_F5,           KC_F6,
-        KC_TAB,           KC_Z,            KC_MINS,         KC_LBRC,         KC_RBRC,         KC_CIRC,         KC_ENTER,
+        KC_TAB,           KC_EQL,          KC_UNDS,         KC_LBRC,         KC_RBRC,         KC_CIRC,         KC_ENTER,
         LCA_T(KC_BTN1),   KC_BSLS,         KC_SLSH,         KC_LCBR,         KC_RCBR,         KC_ASTR,         MO(_SYS),
         KC_LSFT,          KC_HASH,         KC_DLR,          KC_PIPE,         KC_TILD,         KC_QUOT,         LCTL(KC_H),
         KC_LCTL,          KC_LWIN,         KC_TRNS,         KC_LALT,         KC_TRNS,         KC_SPC,          KC_TRNS
@@ -35,16 +36,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,           KC_F12,          KC_F13,          KC_F14,          KC_F15,          MI_C4,           MI_Cs4,
         KC_TAB,           KC_PGUP,         KC_BSPC,         KC_UP,           KC_DEL,          KC_PGDN,         KC_ENTER,
         KC_HOME,          LCTL(KC_LEFT),   KC_LEFT,         KC_DOWN,         KC_RIGHT,        LCTL(KC_RIGHT),  MO(_SYS),
-        KC_LSFT,          KC_WBAK,         LCTL(KC_X),      LCTL(KC_C),      LCTL(KC_V),     KC_WFWD,         KC_END,
-        KC_LCTL,          KC_LWIN,         TO(_BASE),       KC_LALT,         KC_TRNS,        KC_SPC,           MO(_NEOL3)
+        KC_LSFT,          KC_WBAK,         LCTL(KC_X),      LCTL(KC_C),      LCTL(KC_V),      KC_WFWD,         KC_END,
+        KC_LCTL,          KC_LWIN,         TO(_MINE),       KC_LALT,         KC_TRNS,         KC_SPC,          MO(_NEOL4)
     ),
     [_SYS] = LAYOUT_ortho_5x7(
         QK_BOOTLOADER,    KC_NO,           KC_NO,                KC_MSTP,         KC_MPLY,           KC_VOLD,        KC_VOLU,
-        KC_TAB,           KC_NO,           RGB_MODE_BREATHE,    RGB_VAI,         RGB_MODE_RAINBOW,  RGB_TOG,        KC_CALC,
+        TO(_QWERTZ),      KC_NO,           RGB_MODE_BREATHE,    RGB_VAI,         RGB_MODE_RAINBOW,  RGB_TOG,        KC_CALC,
         KC_NO,            KC_NO,           RGB_HUD,             RGB_VAD,         RGB_HUI,           KC_MNXT,        MO(_SYS),
         KC_LSFT,          KC_NO,           KC_NO,              KC_WBAK,          KC_WFWD,             KC_MPRV,       KC_PAUS,
-        QK_REBOOT,        KC_LWIN,         KC_TRNS,             KC_LALT,         KC_TRNS,            KC_SPC,         MO(_NEOL3)
-    )
+        QK_REBOOT,        KC_LWIN,         KC_TRNS,             KC_LALT,         KC_TRNS,            KC_SPC,        MO(_NEOL4)
+    ),
+    [_QWERTZ] = LAYOUT_ortho_5x7(
+        KC_ESC,           KC_1,            KC_2,            KC_3,            KC_4,            KC_5,            KC_6,
+        KC_TAB,           KC_Q,            KC_W,            KC_E,            KC_R,            KC_T,            KC_ENTER,
+        LCA_T(KC_BTN1),   KC_A,            KC_S,            KC_D,            KC_F,            KC_G,            MO(_SYS),
+        KC_LSFT,          KC_Y,            KC_X,            KC_C,            KC_V,            KC_B,            KC_PSCR,
+        KC_LCTL,          KC_LWIN,         TO(_NEOL4),         KC_LALT,     MO(_NEOL3),      KC_SPC,          MO(_NEOL4)
+    ),
 };
 
 //RALT(KC_Q) // for ä at position a
@@ -52,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //RALT(KC_Y) // for ü at position u
 //RALT(KC_P) // for ö at position o
 
-#define COL_BASE    HSV_TEAL
+#define COL_MINE    128, 225, 108
 #define COL_NL3     HSV_CYAN
 #define COL_NL4     HSV_GOLD
 #define COL_NUMLOCK HSV_ORANGE
@@ -65,21 +73,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 // MO_LAYER key pressed
                 rgblight_sethsv(COL_NL4);
             } else {
-                rgblight_sethsv(COL_BASE);
+                rgblight_sethsv(COL_MINE);
             }
             return true;
         case MO(_SYS):
             if (record->event.pressed) {
                 rgblight_sethsv(COL_SYS);
             } else {
-                rgblight_sethsv(COL_BASE);
+                rgblight_sethsv(COL_MINE);
             }
             return true;
         case MO(_NEOL3):
             if (record->event.pressed) {
                 rgblight_sethsv(COL_NL3);
             } else {
-                rgblight_sethsv(COL_BASE);
+                rgblight_sethsv(COL_MINE);
             }
             return true;
         case TO(_NEOL4):
@@ -99,9 +107,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
             }
             return true;
-        case TO(_BASE):
+        case TO(_MINE):
             if (record->event.pressed) {
-                rgblight_sethsv(COL_BASE);
+                rgblight_sethsv(COL_MINE);
             } 
             return true;
         default:

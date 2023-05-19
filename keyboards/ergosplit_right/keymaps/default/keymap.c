@@ -11,16 +11,17 @@ enum layer_names {
 	_BASE,
 	_NEOL3,
 	_NEOL4,
-    _SYS
+    _SYS,
+    _QWERT
 };
 
 // LAYOUT_ortho_7x5
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_ortho_5x7(
             TO(_NEOL4),         KC_7,       KC_8,           KC_9,     KC_0,     RALT(KC_S),     KC_BACKSPACE,
-            KC_ENTER,           KC_Z,       KC_U,           KC_I,     KC_O,     KC_P,           RALT(KC_Y),
-            KC_DEL,             KC_H,       KC_J,           KC_K,     KC_L,     RALT(KC_P),     RALT(KC_Q),
-            MO(_SYS),           KC_N,       KC_M,           KC_COMM,  KC_DOT,   KC_SCLN,        KC_RSFT,
+            KC_ENTER,           KC_W,       KC_B,           KC_D,     KC_G,     KC_Y,           KC_Z,
+            KC_DEL,             KC_M,       KC_N,           KC_T,     KC_S,     KC_H,           KC_SCLN,
+            MO(_SYS),           KC_P,       KC_F,           KC_COMM,  KC_DOT,   KC_K,           KC_RSFT,
             MO(_NEOL3),         KC_SPC,     MO(_NEOL4),     KC_RALT,  KC_RWIN,  TO(_NEOL4),     KC_RCTL
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
@@ -39,10 +40,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_SYS] = LAYOUT_ortho_5x7(
             QK_BOOTLOADER,      KC_INT1,    KC_INT2,        KC_PSLS,  KC_PAST,  KC_MINS,        QK_BOOTLOADER,
-            KC_PENT,            KC_Z,       KC_P7,          KC_P8,    KC_P9,    KC_PPLS,        KC_PMNS,
+            TO(_QWERT),         KC_Z,       KC_P7,          KC_P8,    KC_P9,    KC_PPLS,        KC_PMNS,
             KC_DEL,             KC_H,       KC_P4,          KC_P5,    KC_P6,    KC_COMM,        QK_UNICODE_MODE_WINDOWS,
             MO(_SYS),           KC_M,       KC_P1,          KC_P2,    KC_P3,    KC_SCLN,        KC_UP,
             MO(_NEOL3),         KC_SPC,     TO(_BASE),      KC_RALT,  KC_LEFT,  KC_NUM,         QK_REBOOT
+    ),
+    [_QWERT] = LAYOUT_ortho_5x7(
+            TO(_NEOL4),         KC_7,       KC_8,           KC_9,     KC_0,     RALT(KC_S),     KC_BACKSPACE,
+            KC_ENTER,           KC_Z,       KC_U,           KC_I,     KC_O,     KC_P,           RALT(KC_Y),
+            KC_DEL,             KC_H,       KC_J,           KC_K,     KC_L,     RALT(KC_P),     RALT(KC_Q),
+            MO(_SYS),           KC_N,       KC_M,           KC_COMM,  KC_DOT,   KC_SCLN,        KC_RSFT,
+            MO(_NEOL3),         KC_SPC,     MO(_NEOL4),     KC_RALT,  KC_RWIN,  TO(_NEOL4),     KC_RCTL
     )
 };
 
