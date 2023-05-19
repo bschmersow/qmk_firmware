@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_ortho_5x7(
             TO(_NEOL4),         KC_7,       KC_8,           KC_9,     KC_0,     RALT(KC_S),     KC_BACKSPACE,
             KC_ENTER,           KC_W,       KC_B,           KC_D,     KC_G,     KC_Y,           KC_Z,
-            KC_DEL,             KC_M,       KC_N,           KC_T,     KC_S,     KC_H,           KC_SCLN,
+            KC_DEL,             KC_M,       KC_N,           KC_T,     KC_R,     KC_H,           KC_SCLN,
             MO(_SYS),           KC_P,       KC_F,           KC_COMM,  KC_DOT,   KC_K,           KC_RSFT,
             MO(_NEOL3),         KC_SPC,     MO(_NEOL4),     KC_RALT,  KC_RWIN,  TO(_NEOL4),     KC_RCTL
     ),
@@ -32,11 +32,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_NEOL3),         KC_SPC,     MO(_NEOL4),     KC_RALT,  KC_RWIN,  TO(_NEOL4),     KC_RCTL
     ),
     [_NEOL4] = LAYOUT_ortho_5x7(
-            TO(_BASE),          KC_F19,     KC_F20,         KC_PSLS,  KC_PAST,  KC_MINS,         KC_BACKSPACE,
+            KC_NUM,            KC_F19,     KC_F20,          KC_PSLS,  KC_PAST,  KC_MINS,         KC_BACKSPACE,
             KC_PENT,            KC_Z,       KC_P7,          KC_P8,    KC_P9,    KC_PPLS,        KC_PMNS,
             KC_DEL,             KC_H,       KC_P4,          KC_P5,    KC_P6,    KC_COMM,        KC_PDOT,
             QK_MIDI_SUSTAIN,    MI_LEG,     KC_P1,          KC_P2,    KC_P3,    KC_SCLN,        KC_UP,
-            TO(_BASE),          KC_SPC,     MO(_NEOL4),      KC_RALT,  KC_LEFT,  KC_NUM,        KC_RCTL
+            TO(_BASE),          KC_SPC,     MO(_NEOL4),     KC_RALT,  KC_LEFT,  TO(_BASE),      KC_RCTL
     ),
     [_SYS] = LAYOUT_ortho_5x7(
             QK_BOOTLOADER,      KC_INT1,    KC_INT2,        KC_PSLS,  KC_PAST,  KC_MINS,        QK_BOOTLOADER,
@@ -60,9 +60,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //RALT(KC_P) // for ö at position o
 
 #define COL_BASE    HSV_TEAL
-#define COL_NL3     HSV_CYAN
-#define COL_NL4     HSV_GOLD
-#define COL_NUMLOCK HSV_ORANGE
+#define COL_NL3     HSV_BLUE
+#define COL_NL4     HSV_PURPLE
+#define COL_NUMLOCK HSV_GOLD
 #define COL_SYS     HSV_RED
 
 void keyboard_post_init_user(void) {

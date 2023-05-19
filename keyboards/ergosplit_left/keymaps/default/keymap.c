@@ -20,9 +20,9 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MINE] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_1,            KC_2,            KC_3,            KC_4,            KC_5,            KC_6,
-        KC_TAB,           KC_J,            KC_L,            KC_U,            KC_A,            KC_Q,            KC_ENTER,
-        LCA_T(KC_BTN1),   KC_C,            KC_R,            KC_I,            KC_E,            KC_O,            MO(_SYS),
-        KC_LSFT,          KC_V,            KC_X,            RALT(KC_Y),      RALT(KC_Q),      RALT(KC_P),            KC_PSCR,
+        KC_TAB,           RALT(KC_Y),      KC_L,            KC_U,            RALT(KC_Q),      KC_Q,            KC_ENTER,
+        LCA_T(KC_BTN1),   KC_C,            KC_S,            KC_I,            KC_E,            KC_O,            MO(_SYS),
+        KC_LSFT,          KC_V,            KC_X,            KC_J,            KC_A,            RALT(KC_P),      KC_PSCR,
         KC_LCTL,          KC_LWIN,         TO(_NEOL4),      KC_LALT,         MO(_NEOL3),      KC_SPC,          MO(_NEOL4)
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
@@ -36,13 +36,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,           KC_F12,          KC_F13,          KC_F14,          KC_F15,          MI_C4,           MI_Cs4,
         KC_TAB,           KC_PGUP,         KC_BSPC,         KC_UP,           KC_DEL,          KC_PGDN,         KC_ENTER,
         KC_HOME,          LCTL(KC_LEFT),   KC_LEFT,         KC_DOWN,         KC_RIGHT,        LCTL(KC_RIGHT),  MO(_SYS),
-        KC_LSFT,          KC_WBAK,         LCTL(KC_X),      LCTL(KC_C),      LCTL(KC_V),      KC_WFWD,         KC_END,
+        KC_LSFT,          LCTL(KC_Z),      LCTL(KC_X),      LCTL(KC_C),      LCTL(KC_V),      LCTL(KC_Y),      KC_END,
         KC_LCTL,          KC_LWIN,         TO(_MINE),       KC_LALT,         KC_TRNS,         KC_SPC,          MO(_NEOL4)
     ),
     [_SYS] = LAYOUT_ortho_5x7(
-        QK_BOOTLOADER,    KC_NO,           KC_NO,                KC_MSTP,         KC_MPLY,           KC_VOLD,        KC_VOLU,
+        QK_BOOTLOADER,    LCTL(KC_PWR),    KC_NO,                KC_MSTP,         KC_MPLY,           KC_VOLD,        KC_VOLU,
         TO(_QWERTZ),      KC_NO,           RGB_MODE_BREATHE,    RGB_VAI,         RGB_MODE_RAINBOW,  RGB_TOG,        KC_CALC,
-        KC_NO,            KC_NO,           RGB_HUD,             RGB_VAD,         RGB_HUI,           KC_MNXT,        MO(_SYS),
+        KC_CAPS,          KC_NO,           RGB_HUD,             RGB_VAD,         RGB_HUI,           KC_MNXT,        MO(_SYS),
         KC_LSFT,          KC_NO,           KC_NO,              KC_WBAK,          KC_WFWD,             KC_MPRV,       KC_PAUS,
         QK_REBOOT,        KC_LWIN,         KC_TRNS,             KC_LALT,         KC_TRNS,            KC_SPC,        MO(_NEOL4)
     ),
@@ -60,10 +60,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //RALT(KC_Y) // for ü at position u
 //RALT(KC_P) // for ö at position o
 
-#define COL_MINE    128, 225, 108
-#define COL_NL3     HSV_CYAN
-#define COL_NL4     HSV_GOLD
-#define COL_NUMLOCK HSV_ORANGE
+#define COL_MINE    HSV_TEAL
+#define COL_NL3     HSV_BLUE
+#define COL_NL4     HSV_PURPLE
+#define COL_NUMLOCK HSV_GOLD
 #define COL_SYS     HSV_RED
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
