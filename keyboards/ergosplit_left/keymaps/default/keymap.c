@@ -18,32 +18,32 @@ enum layer_names {
 // LAYOUT_ortho_7x5
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_ortho_5x7(
-        KC_ESC,           KC_0,            KC_1,            KC_2,            KC_3,            KC_4,            KC_5,
+        KC_ESC,           KC_1,            KC_2,            KC_3,            KC_4,            KC_5,            KC_6,
         KC_TAB,           KC_Q,            KC_W,            KC_E,            KC_R,            KC_T,            KC_ENTER,
-        TO(_NEOL4),       KC_A,            KC_S,            KC_D,            KC_F,            KC_G,            MO(_SYS),
-        KC_LSFT,          KC_Y,            KC_X,            KC_C,            KC_V,            KC_B,            KC_NO,
-        KC_LCTL,          KC_NO,           KC_NO,           KC_LALT,           MO(_NEOL4),      KC_SPC,          MO(_NEOL3)
+        LCA_T(KC_BTN1),   KC_A,            KC_S,            KC_D,            KC_F,            KC_G,            MO(_SYS),
+        KC_LSFT,          KC_Y,            KC_X,            KC_C,            KC_V,            KC_B,            KC_PSCR,
+        KC_LCTL,          KC_LWIN,         TO(_NEOL4),         KC_LALT,      MO(_NEOL4),      KC_SPC,          MO(_NEOL3)
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_F1,           KC_F2,           KC_F3,           KC_F4,           KC_F5,           KC_F6,
-        KC_TAB,           KC_Z,            KC_MINS,         KC_RBRC,         KC_RBRC,         KC_CIRC,         KC_EXLM,
-        TO(_NEOL4),       KC_BSLS,         KC_SLSH,         KC_LCBR,         KC_RCBR,         KC_ASTR,         KC_QUES,
-        KC_LSFT,          KC_HASH,         KC_DLR,         KC_PIPE,          KC_TILD,         KC_RSFT,         KC_UP,
-        KC_LCTL,          KC_NO,           KC_NO,           KC_LALT,         MO(_NEOL4),      KC_SPC,          MO(_NEOL3)
+        KC_TAB,           KC_Z,            KC_MINS,         KC_LBRC,         KC_RBRC,         KC_CIRC,         KC_ENTER,
+        LCA_T(KC_BTN1),   KC_BSLS,         KC_SLSH,         KC_LCBR,         KC_RCBR,         KC_ASTR,         KC_TRNS,
+        KC_LSFT,          KC_HASH,         KC_DLR,          KC_PIPE,         KC_TILD,         KC_QUOT,         KC_PAUS,
+        KC_LCTL,          KC_LWIN,         KC_TRNS,         KC_LALT,         KC_TRNS,         KC_SPC,          KC_TRNS
     ),
     [_NEOL4] = LAYOUT_ortho_5x7(
-        KC_ESC,           KC_6,            KC_7,            KC_8,            KC_9,            KC_0,            KC_BACKSPACE,
-        KC_TAB,           KC_PGUP,         KC_BSPC,         KC_UP,           KC_DEL,          KC_PGDN,       KC_P,
-        TO(_BASE),        LCTL(KC_LEFT),   KC_LEFT,         KC_DOWN,         KC_RIGHT,        LCTL(KC_RIGHT),  RALT(KC_Q),
-        KC_N,             KC_M,            KC_COMM,         KC_DOT,          KC_SLSH,         KC_RSFT,         KC_UP,
-        KC_LCTL,          KC_NO,           KC_LALT,         KC_NO,           MO(_NEOL4),      KC_SPC,          MO(_NEOL3)
+        KC_ESC,           KC_F12,          KC_F13,          KC_F14,          KC_F15,          MI_C4,           MI_Cs4,
+        KC_TAB,           KC_PGUP,         KC_BSPC,         KC_UP,           KC_DEL,          KC_PGDN,         KC_ENTER,
+        LCA_T(KC_BTN1),   LCTL(KC_LEFT),   KC_LEFT,         KC_DOWN,         KC_RIGHT,        LCTL(KC_RIGHT),  KC_TRNS,
+        KC_LSFT,          KC_HOME,         KC_END,         KC_WBAK,          KC_WFWD,         KC_RSFT,         KC_UP,
+        KC_LCTL,          KC_LWIN,         KC_TRNS,         KC_LALT,         KC_TRNS,         KC_SPC,          KC_TRNS
     ),
     [_SYS] = LAYOUT_ortho_5x7(
-        QK_BOOTLOADER,    KC_0,            KC_1,            KC_2,            KC_3,            KC_4,            KC_5,
-        KC_TAB,           KC_Q,            RGB_MODE_BREATHE, RGB_VAI,         RGB_MODE_RAINBOW, KC_T,            RGB_TOG,
-        TO(_NEOL4),       KC_A,            RGB_HUD,           RGB_VAD,          RGB_HUI,            KC_G,            MO(_SYS), //quad btn up right
-        KC_LSFT,          KC_Y,            KC_X,            KC_C,            KC_V,            KC_B,            KC_NO,
-        QK_REBOOT,          KC_NO,           KC_LALT,         KC_NO,           MO(_NEOL4),      KC_SPC,          MO(_NEOL3)
+        QK_BOOTLOADER,    KC_NO,           KC_NO,                KC_MSTP,         KC_MPLY,           KC_VOLD,        KC_VOLU,
+        KC_TAB,           KC_NO,            RGB_MODE_BREATHE,    RGB_VAI,         RGB_MODE_RAINBOW,  RGB_TOG,        KC_CALC
+        LCA_T(KC_BTN1),   KC_NO,            RGB_HUD,             RGB_VAD,         RGB_HUI,           KC_MNXT,        KC_TRNS, //quad btn up right
+        KC_LSFT,          KC_NO,            KC_NO,              KC_NO,            KC_NO,             KC_MPRV,        KC_NO,
+        QK_REBOOT,        KC_LWIN,         KC_TRNS,             KC_LALT,         KC_TRNS,            KC_SPC,         KC_TRNS
     )
 };
 
