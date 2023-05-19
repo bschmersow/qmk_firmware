@@ -52,79 +52,60 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //RALT(KC_Y) // for ü at position u
 //RALT(KC_P) // for ö at position o
 
+#define COL_BASE    HSV_TEAL
+#define COL_NL3     HSV_CYAN
+#define COL_NL4     HSV_GOLD
+#define COL_NUMLOCK HSV_ORANGE
+#define COL_SYS     HSV_RED
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // switch (keycode) {
-    //     case MO(_NEOL4):
-    //         if (record->event.pressed) {
-    //             // MO_LAYER key pressed
-    //             rgblight_setrgb(12, 200, 80);
-    //         } else {
-    //             // MO_LAYER key released
-    //             rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT); // Change to static mode
-    //         }
-    //         return false; // Skip all further processing of this key
-    //     case MO(_SYS):
-    //     if (record->event.pressed) {
-    //         // MO_LAYER key pressed
-    //         rgblight_set_layer_state(1, 1);
-    //     } else {
-    //         // MO_LAYER key released
-    //         rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT); // Change to static mode
-    //     }
-    //     return false; // Skip all further processing of this key
-    //     default:
-    //         return true; // Process all other keycodes normally
-    // }
+    switch (keycode) {
+        case MO(_NEOL4):
+            if (record->event.pressed) {
+                // MO_LAYER key pressed
+                rgblight_sethsv(COL_NL4);
+            } else {
+                rgblight_sethsv(COL_BASE);
+            }
+            return true;
+        case MO(_SYS):
+            if (record->event.pressed) {
+                rgblight_sethsv(COL_SYS);
+            } else {
+                rgblight_sethsv(COL_BASE);
+            }
+            return true;
+        case MO(_NEOL3):
+            if (record->event.pressed) {
+                rgblight_sethsv(COL_NL3);
+            } else {
+                rgblight_sethsv(COL_BASE);
+            }
+            return true;
+        case TO(_NEOL4):
+            if (record->event.pressed) {
+                rgblight_sethsv(COL_NL4);
+            } 
+            return true;
+        case KC_NUM:
+            if (record->event.pressed) {
+                led_t led_state = host_keyboard_led_state();
+                if (led_state.num_lock) {
+                    // Num Lock is on
+                    rgblight_sethsv(COL_NUMLOCK);
+                } else {
+                    // Num Lock is off
+                    rgblight_sethsv(COL_NL4);
+                }
+            }
+            return true;
+        case TO(_BASE):
+            if (record->event.pressed) {
+                rgblight_sethsv(COL_BASE);
+            } 
+            return true;
+        default:
+            return true; // Process all other keycodes normally
+    }
     return true;
 }
-
-// Light LEDs 9 & 10 in cyan when keyboard layer 1 is active
-const rgblight_segment_t PROGMEM _base_light_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 1, HSV_AZURE}
-);
-// Light LEDs 11 & 12 in purple when keyboard layer 2 is active
-const rgblight_segment_t PROGMEM _neo3_light_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {3, 1, HSV_CYAN}
-);
-// Light LEDs 13 & 14 in green when keyboard layer 3 is active
-const rgblight_segment_t PROGMEM _neo4_light_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {5, 1, HSV_PURPLE}
-);
-// Light LEDs 13 & 14 in green when keyboard layer 3 is active
-const rgblight_segment_t PROGMEM _sys_light_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {8, 1, HSV_RED}
-);
-
-
-// Now define the array of layers. Later layers take precedence
-const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    _base_light_layer, 
-    _neo3_light_layer,
-    _neo4_light_layer,
-    _sys_light_layer
-);
-
-void keyboard_post_init_user(void) {
-    // Enable the LED layers
-    rgblight_set();
-    rgblight_layers = my_rgb_layers;
-}
-
-bool led_update_user(led_t led_state) {
-    rgblight_set_layer_state(0, 0);
-    return true;
-}
-
-layer_state_t default_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(0, layer_state_cmp(state, _BASE));
-    return state;
-}
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(0, layer_state_cmp(state, _BASE));
-    rgblight_set_layer_state(1, layer_state_cmp(state, _NEOL3));
-    rgblight_set_layer_state(2, layer_state_cmp(state, _NEOL4));
-    rgblight_set_layer_state(3, layer_state_cmp(state, _SYS));
-    return state;
-}
-
