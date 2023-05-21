@@ -18,11 +18,11 @@ enum layer_names {
 // LAYOUT_ortho_7x5
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_ortho_5x7(
-            TO(_NEOL4),         KC_7,       KC_8,           KC_9,     KC_0,     RALT(KC_S),     KC_BACKSPACE,
-            KC_ENTER,           KC_W,       KC_B,           KC_D,     KC_G,     KC_Y,           KC_Z,
-            KC_DEL,             KC_M,       KC_N,           KC_T,     KC_R,     KC_H,           KC_SCLN,
-            MO(_SYS),           KC_P,       KC_F,           KC_COMM,  KC_DOT,   KC_K,           KC_RSFT,
-            MO(_NEOL3),         KC_SPC,     MO(_NEOL4),     KC_RALT,  KC_RWIN,  TO(_NEOL4),     KC_RCTL
+            TO(_NEOL4),         KC_7,       KC_8,                       KC_9,           KC_0,     RALT(KC_S),     KC_BACKSPACE,
+            KC_ENTER,           KC_W,       KC_B,                       KC_R,           KC_D,     KC_J,           RALT(KC_Y),
+            KC_DEL,             KC_H,       KC_N,                       KC_T,           KC_L,    KC_O,            RSFT_T(KC_ENTER),
+            MO(_SYS),           KC_P,       KC_M,                       KC_COMM,        KC_DOT,   KC_K,           KC_MEH,
+            MO(_NEOL3),         KC_SPC,     MO(_NEOL4),                 KC_RALT,        KC_RWIN,  TO(_NEOL4),     KC_RCTL
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
             TO(_NEOL4),         KC_F7,      KC_F8,          KC_F9,    KC_F10,   KC_GRV,     KC_BACKSPACE,
@@ -41,8 +41,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_SYS] = LAYOUT_ortho_5x7(
             QK_BOOTLOADER,      KC_INT1,    KC_INT2,        KC_PSLS,  KC_PAST,  KC_MINS,        QK_BOOTLOADER,
             TO(_QWERT),         KC_Z,       KC_P7,          KC_P8,    KC_P9,    KC_PPLS,        KC_PMNS,
-            KC_DEL,             KC_H,       KC_P4,          KC_P5,    KC_P6,    KC_COMM,        QK_UNICODE_MODE_WINDOWS,
-            MO(_SYS),           KC_M,       KC_P1,          KC_P2,    KC_P3,    KC_SCLN,        KC_UP,
+            KC_DEL,             DT_UP,      KC_P4,          KC_P5,    KC_P6,    KC_COMM,        QK_UNICODE_MODE_WINDOWS,
+            MO(_SYS),           DT_DOWN,    KC_P1,          KC_P2,    KC_P3,    KC_SCLN,        KC_UP,
             MO(_NEOL3),         KC_SPC,     TO(_BASE),      KC_RALT,  KC_LEFT,  KC_NUM,         QK_REBOOT
     ),
     [_QWERT] = LAYOUT_ortho_5x7(

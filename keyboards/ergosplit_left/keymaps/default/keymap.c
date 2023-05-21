@@ -19,16 +19,16 @@ enum layer_names {
 // LAYOUT_ortho_7x5
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MINE] = LAYOUT_ortho_5x7(
-        KC_ESC,           KC_1,            KC_2,            KC_3,            KC_4,            KC_5,            KC_6,
-        KC_TAB,           RALT(KC_Y),      KC_L,            KC_U,            RALT(KC_Q),      KC_Q,            KC_ENTER,
-        LCA_T(KC_BTN1),   KC_C,            KC_S,            KC_I,            KC_E,            KC_O,            MO(_SYS),
-        KC_LSFT,          KC_V,            KC_X,            KC_J,            KC_A,            RALT(KC_P),      KC_PSCR,
-        KC_LCTL,          KC_LWIN,         TO(_NEOL4),      KC_LALT,         MO(_NEOL3),      KC_SPC,          MO(_NEOL4)
+        KC_ESC,           KC_1,            KC_2,            KC_3,            KC_4,                      KC_5,            KC_6,
+        KC_TAB,           KC_Q,            KC_F,            KC_U,            RALT(KC_Q),                RALT(KC_P),      KC_ENTER,
+        LSFT_T(KC_ENTER), KC_A,            KC_S,            KC_I,            KC_E,               KC_G,            MO(_SYS),
+        KC_MEH,           KC_Z,            KC_X,            KC_C,            KC_V,                      KC_Y,               KC_PSCR,
+        KC_LCTL,          KC_LWIN,         TO(_NEOL4),      KC_LALT,         MO(_NEOL4),                KC_SPC,          MO(_NEOL4)
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_F1,           KC_F2,           KC_F3,           KC_F4,           KC_F5,           KC_F6,
         KC_TAB,           KC_EQL,          KC_UNDS,         KC_LBRC,         KC_RBRC,         KC_CIRC,         KC_ENTER,
-        LCA_T(KC_BTN1),   KC_BSLS,         KC_SLSH,         KC_LCBR,         KC_RCBR,         KC_ASTR,         MO(_SYS),
+        KC_LSFT,          KC_BSLS,         KC_SLSH,         KC_LCBR,         KC_RCBR,         KC_ASTR,         MO(_SYS),
         KC_LSFT,          KC_HASH,         KC_DLR,          KC_PIPE,         KC_TILD,         KC_QUOT,         LCTL(KC_H),
         KC_LCTL,          KC_LWIN,         KC_TRNS,         KC_LALT,         KC_TRNS,         KC_SPC,          KC_TRNS
     ),
@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTZ] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_1,            KC_2,            KC_3,            KC_4,            KC_5,            KC_6,
         KC_TAB,           KC_Q,            KC_W,            KC_E,            KC_R,            KC_T,            KC_ENTER,
-        LCA_T(KC_BTN1),   KC_A,            KC_S,            KC_D,            KC_F,            KC_G,            MO(_SYS),
+        KC_LSFT,          KC_A,            KC_S,            KC_D,            KC_F,            KC_G,            MO(_SYS),
         KC_LSFT,          KC_Y,            KC_X,            KC_C,            KC_V,            KC_B,            KC_PSCR,
         KC_LCTL,          KC_LWIN,         TO(_NEOL4),         KC_LALT,     MO(_NEOL3),      KC_SPC,          MO(_NEOL4)
     ),
