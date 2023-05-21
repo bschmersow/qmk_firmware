@@ -21,9 +21,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MINE] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_1,            KC_2,            KC_3,            KC_4,                      KC_5,            KC_6,
         KC_TAB,           KC_Q,            KC_F,            KC_U,            RALT(KC_Q),                RALT(KC_P),      KC_ENTER,
-        LSFT_T(KC_ENTER), KC_A,            KC_S,            KC_I,            KC_E,               KC_G,            MO(_SYS),
-        KC_MEH,           KC_Z,            KC_X,            KC_C,            KC_V,                      KC_Y,               KC_PSCR,
-        KC_LCTL,          KC_LWIN,         TO(_NEOL4),      KC_LALT,         MO(_NEOL4),                KC_SPC,          MO(_NEOL4)
+        LSFT_T(KC_ENTER), KC_A,            KC_S,            KC_I,            KC_E,                      KC_D,            MO(_SYS),
+        KC_MEH,           KC_Z,            KC_X,            KC_C,            KC_G,                      KC_V,               KC_PSCR,
+        KC_LCTL,          KC_LWIN,         TO(_NEOL4),      KC_LALT,         MO(_NEOL3),                KC_SPC,          MO(_NEOL4)
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_F1,           KC_F2,           KC_F3,           KC_F4,           KC_F5,           KC_F6,
@@ -35,8 +35,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NEOL4] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_F12,          KC_F13,          KC_F14,          KC_F15,          MI_C4,           MI_Cs4,
         KC_TAB,           KC_PGUP,         KC_BSPC,         KC_UP,           KC_DEL,          KC_PGDN,         KC_ENTER,
-        KC_HOME,          LCTL(KC_LEFT),   KC_LEFT,         KC_DOWN,         KC_RIGHT,        LCTL(KC_RIGHT),  MO(_SYS),
-        KC_LSFT,          LCTL(KC_Z),      LCTL(KC_X),      LCTL(KC_C),      LCTL(KC_V),      LCTL(KC_Y),      KC_END,
+        KC_LSFT,          LCTL(KC_LEFT),   KC_LEFT,         KC_DOWN,         KC_RIGHT,        LCTL(KC_RIGHT),  MO(_SYS),
+        KC_HOME,          LCTL(KC_Z),      LCTL(KC_X),      LCTL(KC_C),      LCTL(KC_V),      LCTL(KC_Y),      KC_END,
         KC_LCTL,          KC_LWIN,         TO(_MINE),       KC_LALT,         KC_TRNS,         KC_SPC,          MO(_NEOL4)
     ),
     [_SYS] = LAYOUT_ortho_5x7(
@@ -65,6 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define COL_NL4     HSV_PURPLE
 #define COL_NUMLOCK HSV_GOLD
 #define COL_SYS     HSV_RED
+#define COL_QWERT   HSV_GREEN
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {

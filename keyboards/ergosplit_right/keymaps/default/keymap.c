@@ -19,9 +19,9 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_ortho_5x7(
             TO(_NEOL4),         KC_7,       KC_8,                       KC_9,           KC_0,     RALT(KC_S),     KC_BACKSPACE,
-            KC_ENTER,           KC_W,       KC_B,                       KC_R,           KC_D,     KC_J,           RALT(KC_Y),
-            KC_DEL,             KC_H,       KC_N,                       KC_T,           KC_L,    KC_O,            RSFT_T(KC_ENTER),
-            MO(_SYS),           KC_P,       KC_M,                       KC_COMM,        KC_DOT,   KC_K,           KC_MEH,
+            KC_ENTER,           KC_W,       KC_B,                       KC_L,           KC_Y,     KC_J,           RALT(KC_Y),
+            KC_DEL,             KC_M,       KC_N,                       KC_T,           KC_R,    KC_O,            RSFT_T(KC_ENTER),
+            MO(_SYS),           KC_P,       KC_H,                       KC_COMM,        KC_DOT,   KC_K,           KC_MEH,
             MO(_NEOL3),         KC_SPC,     MO(_NEOL4),                 KC_RALT,        KC_RWIN,  TO(_NEOL4),     KC_RCTL
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
@@ -64,6 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define COL_NL4     HSV_PURPLE
 #define COL_NUMLOCK HSV_GOLD
 #define COL_SYS     HSV_RED
+#define COL_QWERT   HSV_GREEN
 
 void keyboard_post_init_user(void) {
     // Enable the LED layers
