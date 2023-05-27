@@ -20,37 +20,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_KOY] = LAYOUT_ortho_5x7(
             TO(_NEOL4),         KC_7,       KC_8,                       KC_9,           KC_0,     RALT(KC_S),     KC_BACKSPACE,
             KC_ENTER,           KC_V,       KC_G,                       KC_C,           KC_L,     KC_Z,           RALT(KC_P),
-            KC_PSCR,            KC_D,       KC_T,                       KC_R,           KC_N,     KC_S,           RSFT_T(KC_ENTER),
+            KC_PSCR,            KC_D,       KC_T,                       KC_R,           KC_N,     KC_S,           KC_RIGHT_SHIFT,
             MO(_SYS),           KC_B,       KC_P,                       KC_W,           KC_M,     KC_J,           KC_MEH,
-            MO(_NEOL3),         KC_SPC,     MO(_NEOL4),                 KC_RALT,        KC_RWIN,  TO(_NEOL4),     KC_RCTL
+            MO(_NEOL3),         RSFT_T(KC_ENTER),     MO(_NEOL4),                 KC_RALT,        KC_RWIN,  TO(_NEOL4),     KC_RCTL
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
             TO(_NEOL4),         KC_F7,      KC_F8,          KC_F9,    KC_F10,   KC_GRV,     KC_BACKSPACE,
             KC_ENTER,           KC_EXLM,    KC_LT,          KC_GT,    KC_EQL,   KC_AMPR,        KC_PLUS,
             KC_DEL,             KC_QUES,    KC_LPRN,        KC_RPRN,  KC_MINS,  KC_COLN,        KC_AT,
             KC_NO,              KC_PLUS,    KC_PERC,        KC_DQT,   KC_QUOT,  KC_SCLN,        KC_RSFT,
-            MO(_NEOL3),         KC_SPC,     MO(_NEOL4),     KC_RALT,  KC_RWIN,  TO(_NEOL4),     KC_RCTL
+            MO(_NEOL3),         RSFT_T(KC_ENTER),     MO(_NEOL4),     KC_RALT,  KC_RWIN,  TO(_NEOL4),     KC_RCTL
     ),
     [_NEOL4] = LAYOUT_ortho_5x7(
             KC_NUM,            KC_F19,     KC_F20,          KC_PSLS,  KC_PAST,  KC_MINS,         KC_BACKSPACE,
             KC_PENT,            KC_Z,       KC_P7,          KC_P8,    KC_P9,    KC_PPLS,        KC_PMNS,
             KC_DEL,             KC_H,       KC_P4,          KC_P5,    KC_P6,    KC_COMM,        KC_PDOT,
             QK_MIDI_SUSTAIN,    MI_LEG,     KC_P1,          KC_P2,    KC_P3,    KC_SCLN,        KC_UP,
-            TO(_KOY),          KC_SPC,     MO(_NEOL4),     KC_RALT,  KC_LEFT,  TO(_KOY),      KC_RCTL
+            TO(_KOY),          KC_P0,     MO(_NEOL4),     KC_RALT,  KC_LEFT,  TO(_KOY),      KC_RCTL
     ),
     [_SYS] = LAYOUT_ortho_5x7(
             QK_BOOTLOADER,      KC_INT1,    KC_INT2,        KC_PSLS,  KC_PAST,  KC_MINS,        QK_BOOTLOADER,
             TO(_QWERT),         KC_Z,       KC_P7,          KC_P8,    KC_P9,    KC_PPLS,        KC_PMNS,
             KC_DEL,             DT_UP,      KC_P4,          KC_P5,    KC_P6,    KC_COMM,        QK_UNICODE_MODE_WINDOWS,
             MO(_SYS),           DT_DOWN,    KC_P1,          KC_P2,    KC_P3,    KC_SCLN,        KC_UP,
-            MO(_NEOL3),         KC_SPC,     TO(_KOY),      KC_RALT,  KC_LEFT,  KC_NUM,         QK_REBOOT
+            MO(_NEOL3),         RSFT_T(KC_ENTER),     TO(_KOY),      KC_RALT,  KC_LEFT,  KC_NUM,         QK_REBOOT
     ),
     [_QWERT] = LAYOUT_ortho_5x7(
             TO(_NEOL4),         KC_7,       KC_8,           KC_9,     KC_0,     RALT(KC_S),     KC_BACKSPACE,
             KC_ENTER,           KC_Z,       KC_U,           KC_I,     KC_O,     KC_P,           RALT(KC_Y),
             KC_DEL,             KC_H,       KC_J,           KC_K,     KC_L,     RALT(KC_P),     RALT(KC_Q),
             MO(_SYS),           KC_N,       KC_M,           KC_COMM,  KC_DOT,   KC_SCLN,        KC_RSFT,
-            MO(_NEOL3),         KC_SPC,     MO(_NEOL4),     KC_RALT,  KC_RWIN,  TO(_NEOL4),     KC_RCTL
+            MO(_NEOL3),         RSFT_T(KC_ENTER),     MO(_NEOL4),     KC_RALT,  KC_RWIN,  TO(_NEOL4),     KC_RCTL
     )
 };
 
