@@ -19,9 +19,9 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_KOY] = LAYOUT_ortho_5x7(
             TO(_NEOL4),         KC_7,       KC_8,                       KC_9,           KC_0,     RALT(KC_S),     KC_BACKSPACE,
-            KC_ENTER,           KC_V,       KC_G,                       KC_C,           KC_L,     KC_Z,           RALT(KC_P),
+            KC_ENTER,           KC_Z,       KC_G,                       KC_C,           KC_L,     RALT(KC_Y),     RALT(KC_Q),
             KC_PSCR,            KC_D,       KC_T,                       KC_R,           KC_N,     KC_S,           KC_RIGHT_SHIFT,
-            MO(_SYS),           KC_B,       KC_P,                       KC_W,           KC_M,     KC_J,           KC_MEH,
+            MO(_SYS),           RALT(KC_P), KC_M,                       KC_COMM,        KC_DOT,   KC_J,           KC_MEH,
             MO(_NEOL3),         RSFT_T(KC_ENTER),     MO(_NEOL4),                 KC_RALT,        KC_RWIN,  TO(_NEOL4),     KC_RCTL
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_NEOL3),         RSFT_T(KC_ENTER),     TO(_KOY),      KC_RALT,  KC_LEFT,  KC_NUM,         QK_REBOOT
     ),
     [_QWERT] = LAYOUT_ortho_5x7(
-            TO(_NEOL4),         KC_7,       KC_8,           KC_9,     KC_0,     RALT(KC_S),     KC_BACKSPACE,
+            TO(_KOY),         KC_7,       KC_8,           KC_9,     KC_0,     RALT(KC_S),     KC_BACKSPACE,
             KC_ENTER,           KC_Z,       KC_U,           KC_I,     KC_O,     KC_P,           RALT(KC_Y),
             KC_DEL,             KC_H,       KC_J,           KC_K,     KC_L,     RALT(KC_P),     RALT(KC_Q),
             MO(_SYS),           KC_N,       KC_M,           KC_COMM,  KC_DOT,   KC_SCLN,        KC_RSFT,
