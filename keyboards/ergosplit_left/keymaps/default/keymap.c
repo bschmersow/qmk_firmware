@@ -20,22 +20,22 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_KOY] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_1,            KC_2,            KC_3,            KC_4,                      KC_5,            KC_6,
-        KC_TAB,           KC_Q,            KC_W,            KC_O,            KC_Y,                      KC_P,            KC_ENTER,
-        KC_LEFT_SHIFT,    KC_H,            KC_A,            KC_E,            KC_I,                      KC_V,            MO(_SYS),
-        TO(_NEOL4),       KC_X,            KC_K,            KC_F,            KC_U,                      KC_B,            LCTL(KC_S),
+        KC_TAB,           KC_Q,            KC_W,            KC_O,            KC_Y,                      RALT(KC_P),      KC_ENTER,
+        KC_LEFT_SHIFT,    KC_H,            KC_A,            KC_E,            KC_I,                      KC_U,            MO(_SYS),
+        KC_MEH,           KC_X,            KC_K,            KC_F,            KC_V,                      KC_COMM,         LCTL(KC_S),
         KC_LCTL,          KC_LWIN,         TO(_NEOL4),      KC_LALT,         MO(_NEOL3),                KC_SPC,          MO(_NEOL4)
     ),
     [_NEOL3] = LAYOUT_ortho_5x7(
         KC_ESC,           KC_F1,           KC_F2,           KC_F3,           KC_F4,           KC_F5,           KC_F6,
         KC_TAB,           KC_EQL,          KC_UNDS,         KC_LBRC,         KC_RBRC,         KC_CIRC,         LCTL(KC_H),
-        KC_LSFT,          KC_BSLS,         KC_SLSH,         KC_LCBR,         KC_RCBR,         KC_ASTR,         MO(_SYS),
+        LSFT_T(KC_ESC),   KC_BSLS,         KC_SLSH,         KC_LCBR,         KC_RCBR,         KC_ASTR,         MO(_SYS),
         TO(_NEOL4),       KC_HASH,         KC_DLR,          KC_PIPE,         KC_TILD,         KC_QUOT,         LCTL(KC_F),
         KC_LCTL,          KC_LWIN,         KC_TRNS,         KC_LALT,         KC_TRNS,         KC_SPC,          KC_TRNS
     ),
     [_NEOL4] = LAYOUT_ortho_5x7(
-        KC_ESC,           KC_F12,          KC_F13,          KC_F14,          KC_F15,          MI_C4,           MI_Cs4,
-        KC_TAB,           KC_PGUP,         KC_BSPC,         KC_UP,           KC_DEL,          KC_PGDN,         KC_ENTER,
-        LSFT_T(KC_ESC),   LCTL(KC_LEFT),   KC_LEFT,         KC_DOWN,         KC_RIGHT,        LCTL(KC_RIGHT),  MO(_SYS),
+        KC_ESC,           KC_F7,           KC_F8,           KC_F9,           KC_F10,          KC_F11,          KC_F12,
+        KC_TAB,           KC_PGUP,         KC_BSPC,         KC_UP,           KC_DEL,          KC_PGDN,         LCTL(KC_D),
+        KC_LSFT,          LCTL(KC_LEFT),   KC_LEFT,         KC_DOWN,         KC_RIGHT,        LCTL(KC_RIGHT),  MO(_SYS),
         KC_HOME,          LCTL(KC_Z),      LCTL(KC_X),      LCTL(KC_C),      LCTL(KC_V),      LCTL(KC_Y),      KC_END,
         KC_LCTL,          KC_LWIN,         TO(_KOY),       KC_LALT,         KC_TRNS,         KC_SPC,           MO(_NEOL4)
     ),
@@ -51,7 +51,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,           KC_Q,            KC_W,            KC_E,            KC_R,            KC_T,            KC_ENTER,
         KC_LSFT,          KC_A,            KC_S,            KC_D,            KC_F,            KC_G,            MO(_SYS),
         KC_MEH,           KC_Y,            KC_X,            KC_C,            KC_V,            KC_B,            TO(_KOY),
-        KC_LCTL,          KC_LWIN,         TO(_NEOL4),      KC_LALT,         MO(_NEOL3),      KC_SPC,          TO(_NEOL4)
+        KC_LCTL,          KC_LWIN,         TO(_NEOL4),      KC_LALT,         MO(_NEOL3),      KC_SPC,          MO(_NEOL4)
+    ),
+    [_COLEMAK] = LAYOUT_ortho_5x7(
+        KC_ESC,           KC_1,            KC_2,            KC_3,            KC_4,                      KC_5,            KC_6,
+        KC_TAB,           KC_Q,            KC_W,            KC_F,            KC_P,                      KC_G,      KC_ENTER,
+        KC_LEFT_SHIFT,    KC_A,            KC_R,            KC_S,            KC_T,                      KC_U,            MO(_SYS),
+        KC_MEH,           KC_Y,            KC_X,            KC_C,            KC_D,                      KC_V,         LCTL(KC_S),
+        KC_LCTL,          KC_LWIN,         TO(_NEOL4),      KC_LALT,         MO(_NEOL3),                KC_SPC,          MO(_NEOL4)
     ),
 };
 
@@ -60,9 +67,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //RALT(KC_Y) // for ü at position u
 //RALT(KC_P) // for ö at position o
 
-#define COL_KOY    HSV_TEAL
+#define COL_KOY     HSV_TEAL
 #define COL_NL3     HSV_BLUE
 #define COL_NL4     HSV_PURPLE
+#define COL_MEH     HSV_CORAL
 #define COL_NUMLOCK HSV_GOLD
 #define COL_SYS     HSV_RED
 #define COL_QWERT   HSV_GREEN
@@ -95,6 +103,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 rgblight_sethsv(COL_NL4);
             } 
+            return true;
+        case KC_MEH:
+            if (record->event.pressed) {
+                rgblight_sethsv(COL_MEH);
+            } else {
+                rgblight_sethsv(COL_KOY);
+            }
             return true;
         case KC_NUM:
             if (record->event.pressed) {
